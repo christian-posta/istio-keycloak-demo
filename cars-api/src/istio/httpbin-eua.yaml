@@ -2,7 +2,7 @@
 apiVersion: config.istio.io/v1alpha2
 kind: EndUserAuthenticationPolicySpec
 metadata: 
-  name: cars-api-auth-policy
+  name: httpbin-auth-policy
   namespace: tutorial
 spec: 
   jwts: 
@@ -14,12 +14,12 @@ spec:
 apiVersion: config.istio.io/v1alpha2
 kind: EndUserAuthenticationPolicySpecBinding
 metadata:
-  name: cars-api-auth-policy-binding
+  name: httpbin-auth-policy-binding
   namespace: tutorial
 spec:
   policies:
-    - name: cars-api-auth-policy
+    - name: httpbin-auth-policy
       namespace: tutorial
   services:
-    - name: cars-api
+    - name: httpbin
       namespace: tutorial

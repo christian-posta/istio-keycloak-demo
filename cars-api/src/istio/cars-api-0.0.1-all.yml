@@ -35,12 +35,6 @@ spec:
               fieldPath: metadata.namespace
         image: kameshsampath/cars-api:0.0.1
         imagePullPolicy: IfNotPresent
-        livenessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 180
         name: spring-boot
         ports:
         - containerPort: 8080
@@ -52,12 +46,6 @@ spec:
         - containerPort: 8778
           name: jolokia
           protocol: TCP
-        readinessProbe:
-          httpGet:
-            path: /health
-            port: 8080
-            scheme: HTTP
-          initialDelaySeconds: 10
         securityContext:
           privileged: false
 ---

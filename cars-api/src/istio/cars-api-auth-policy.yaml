@@ -1,0 +1,14 @@
+apiVersion: authentication.istio.io/v1alpha2
+kind: Policy
+metadata:
+  name: jwt
+  namespace: tutorial
+spec:
+  targets:
+  - name: cars-api
+  origins:
+  - jwt:
+      issuer: http://keycloak:8080/auth/realms/istio
+      jwksUri: http://keycloak.tutorial:8080/auth/realms/istio/protocol/openid-connect/certs
+      audiences: “cars-web”
+  principalBinding: USE_ORIGIN
